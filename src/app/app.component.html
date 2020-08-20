@@ -1,7 +1,7 @@
 <div class="content" role="main">
   <section>
     <div class="card-head">
-      <h1 class="card-title">Catagory</h1>
+      <h1 class="card-title">Category</h1>
       <h3 class="card-subtitle">Please provide some basic details about your company.</h3>
     </div>
   </section>
@@ -9,7 +9,7 @@
   <section>
 
       <div class="card-box-header">
-        <h2 class="card-box-title">Applicable Socio-economic Catagories</h2>
+        <h2 class="card-box-title">Applicable Socio-economic Categories</h2>
         <h3 class="card-subtitle">Select all that apply</h3>
       </div>
 
@@ -17,63 +17,26 @@
         
           <div class="card-container">
 
-              <div class="card" target="_blank" rel="noopener" href="">
-                <input class="box-card-input" type="checkbox" id="box-card" />
-                <label class="box-card-title" for="box-card">
-                  Women-Owned Small Businesses
-                </label>
-              </div>
-
-
-              <div class="card" target="_blank" rel="noopener" href="">
-                <input class="box-card-input" type="checkbox" id="box-card" />
-                <label class="box-card-title" for="box-card">
-                  Historically Underutilized Business (hubz)
-                </label>
-              </div>
-
-
-
-              <div class="card" target="_blank" rel="noopener" href="">
-                <input class="box-card-input" type="checkbox" id="box-card" />
-                <label class="box-card-title" for="box-card">
-                  Indian Economic Enterprise
+              <div   *ngFor="let category of categories" class="card">
+                <input matRipple
+                  class="box-card-input" 
+                  type="checkbox" 
+                  id="{{category.id}}" 
+                  (click)="setValue()" 
+                  [(ngModel)]="category.value"
+                />
+                
+                <label class="box-card-title" for="box-card" [innerHTML]="category.name" style="padding: 7px">
+                  <!-- {{ category.name }} -->
                 </label>
               </div>
 
           </div>
 
-          <div class="card-container">
-
-            <div class="card" target="_blank" rel="noopener" href="">
-              <input class="box-card-input" type="checkbox" id="box-card" />
-              <label class="box-card-title" for="box-card">
-                8(a) Small Business
-              </label>
-            </div>
-
-
-            <div class="card" target="_blank" rel="noopener" href="">
-              <input class="box-card-input" type="checkbox" id="box-card" />
-              <label class="box-card-title" for="box-card">
-                Veteran-Owned Small Businesses
-              </label>
-            </div>
-
-
-
-            <div class="card" target="_blank" rel="noopener" href="">
-              <input class="box-card-input" type="checkbox" id="box-card" />
-              <label class="box-card-title" for="box-card">
-                Service-Disabled<br> Veteran-Owned <br> Business
-              </label>
-            </div>
-
-        </div>
       </div>
   </section>
 
-  <h3 class="card-title">Catagory</h3>
+  <h3 class="card-title">Category</h3>
 
   <section>
     <div class="card-button">
@@ -83,6 +46,8 @@
   </section>
 </div>
 
+
+
   
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
